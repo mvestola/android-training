@@ -1,4 +1,4 @@
-package fi.houston.android;
+package com.houston_inc.android;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -19,7 +19,7 @@ public class HelloAndroidActivity extends Activity {
         super.onCreate(savedInstanceState);
 		Log.i(TAG, "onCreate");
         setContentView(R.layout.main);
-        int x = R.string.test;
+        int x = R.string.test4;
     }
 
 }
