@@ -9,8 +9,12 @@
     <name>mobile-bank-training</name>
 
     <properties>
-        <platform.version>2.3.3</platform.version>
-        <api.version>13</api.version>
+        <!--
+          ActionBarScherlock requires that the platform
+          and api version is >4.0
+        -->
+        <platform.version>4.0.1.2</platform.version>
+        <api.version>15</api.version>
         <powermock.version>1.4.12</powermock.version>
     </properties>
 
@@ -44,6 +48,13 @@
             <artifactId>support-v4</artifactId>
             <version>r7</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.actionbarsherlock</groupId>
+            <artifactId>actionbarsherlock</artifactId>
+            <version>4.2.0</version>
+            <type>apklib</type>
         </dependency>
 
         <dependency>
@@ -129,7 +140,7 @@
                     <resourceDirectory>${project.basedir}/res</resourceDirectory>
                     <nativeLibrariesDirectory>${project.basedir}/src/main/native</nativeLibrariesDirectory>
                     <sdk>
-                        <platform>8</platform>
+                        <platform>${api.version}</platform>
                     </sdk>
                                         <undeployBeforeDeploy>true</undeployBeforeDeploy>
                 </configuration>

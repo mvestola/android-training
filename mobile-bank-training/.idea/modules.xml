@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/mobile-bank-training.iml" filepath="$PROJECT_DIR$/mobile-bank-training.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gen-external-apklibs/~apklib-com.actionbarsherlock_actionbarsherlock_4.2.0.iml" filepath="$PROJECT_DIR$/gen-external-apklibs/~apklib-com.actionbarsherlock_actionbarsherlock_4.2.0.iml" />
     </modules>
   </component>
 </project>

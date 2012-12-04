@@ -57,7 +57,6 @@ public class LoginActivity extends BaseActivity {
         }
 
         onLoginResult();
-        setProgressBarIndeterminateVisibility(false);
 
     }
 
@@ -73,7 +72,6 @@ public class LoginActivity extends BaseActivity {
 
     @UiThread
     void onLoginOk() {
-        Toast.makeText(this, "Login OK", Toast.LENGTH_LONG).show();
         startAccountsActivity();
     }
 
@@ -81,6 +79,7 @@ public class LoginActivity extends BaseActivity {
         // Remember to use underscore version
         Intent intent = new Intent(this, AccountsActivity_.class);
         startActivity(intent);
+        Toast.makeText(this, "Login OK", Toast.LENGTH_LONG).show();
     }
 
     private void onLoginStart() {

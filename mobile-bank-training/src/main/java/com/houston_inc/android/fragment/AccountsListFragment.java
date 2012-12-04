@@ -5,6 +5,7 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 import com.googlecode.androidannotations.annotations.EFragment;
 import com.googlecode.androidannotations.annotations.ViewById;
 import com.houston_inc.android.R;
@@ -41,7 +42,9 @@ public class AccountsListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
 
-        String item = (String) getListAdapter().getItem(position);
+        Account selectedAccount = (Account) getListAdapter().getItem(position);
+
+        Toast.makeText(this.getActivity(), "selected: "+selectedAccount, Toast.LENGTH_LONG).show();
 
 
     }
