@@ -1,11 +1,13 @@
 package com.houston_inc.android.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.googlecode.androidannotations.annotations.*;
 import com.houston_inc.android.R;
+import com.houston_inc.android.fragment.LoadingDialogFragment;
 import com.houston_inc.domain.SecurityKey;
 import com.houston_inc.exception.InvalidCredentialsException;
 import com.houston_inc.exception.InvalidSecurityKeyException;
@@ -28,9 +30,16 @@ public class LoginActivity extends BaseActivity {
     @ViewById(R.id.loginButton)
     Button loginButton;
 
+    private LoadingDialogFragment loadingDialog;
+
+    @Override
+    public void onCreate(Bundle state) {
+        super.onCreate(state);
+    }
+
     @Click(R.id.loginButton)
     void onLoginButtonClick() {
-        disableLoginForm();
+        onLoginStart();
         doLogin();
     }
 
@@ -47,7 +56,8 @@ public class LoginActivity extends BaseActivity {
             onInvalidSecurityKey();
         }
 
-        enableLoginForm();
+        onLoginResult();
+        setProgressBarIndeterminateVisibility(false);
 
     }
 
@@ -71,17 +81,23 @@ public class LoginActivity extends BaseActivity {
         Intent intent = new Intent(this, AccountsActivity.class);
     }
 
-    private void disableLoginForm() {
+    private void onLoginStart() {
+
+        loadingDialog = new LoadingDialogFragment("Logging in...");
+        loadingDialog.show(getSupportFragmentManager(), "loading_dialog");
+
         usernameField.setEnabled(false);
         passwordField.setEnabled(false);
         loginButton.setEnabled(false);
     }
 
     @UiThread
-    void enableLoginForm() {
+    void onLoginResult() {
         usernameField.setEnabled(true);
         passwordField.setEnabled(true);
         loginButton.setEnabled(true);
+        loadingDialog.dismiss();
+
     }
 
 }
