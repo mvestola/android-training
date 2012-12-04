@@ -38,10 +38,6 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" +
-                "balance=" + balance +
-                ", iban=" + iban +
-                ", name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

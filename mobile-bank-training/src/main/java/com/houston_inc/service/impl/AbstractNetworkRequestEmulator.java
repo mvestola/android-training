@@ -5,6 +5,9 @@ package com.houston_inc.service.impl;
  */
 public abstract class AbstractNetworkRequestEmulator {
 
+    // For testing
+    private boolean noSleep;
+
     /**
      * Emulates network request latency by simply waiting the thread.
      *
@@ -14,11 +17,17 @@ public abstract class AbstractNetworkRequestEmulator {
 
         // Emulate network latency
         try {
-            Thread.sleep(milliseconds);
+            if (!noSleep) {
+                Thread.sleep(milliseconds);
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
+    }
+
+    public void doNotSleep() {
+        this.noSleep = true;
     }
 
 }

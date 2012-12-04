@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello mobile-bank-training!</string>
-    <string name="app_name">Houston.inc mobile bank</string>
+    <string name="app_name">RoboBank</string>
     <string name="test">mobile-bank-training</string>
     <string name="test4">mobile-bank-training</string>
 </resources>
