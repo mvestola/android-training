@@ -17,7 +17,9 @@
     </activity>
       <activity android:name=".activity.AccountsActivity_">
       </activity>
-  </application>
+    <activity android:name=".activity.PaymentActivity_">
+    </activity>
+</application>
 
     <uses-sdk
             android:minSdkVersion="8"

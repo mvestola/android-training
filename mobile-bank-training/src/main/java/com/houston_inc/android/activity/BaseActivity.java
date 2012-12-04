@@ -3,6 +3,7 @@ package com.houston_inc.android.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.houston_inc.android.app.MainApplication;
 import dagger.ObjectGraph;
@@ -16,6 +17,10 @@ public class BaseActivity extends SherlockFragmentActivity {
     public void onCreate(Bundle state) {
         super.onCreate(state);
         constructDependencyGraph();
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
     }
 
     /**
