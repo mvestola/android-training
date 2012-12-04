@@ -5,6 +5,10 @@ import com.googlecode.androidannotations.annotations.EApplication;
 import com.houston_inc.MainModule;
 import dagger.ObjectGraph;
 
+/**
+ * Main application class.
+ */
+@EApplication
 public class MainApplication extends Application {
 
     private ObjectGraph objectGraph;
@@ -14,10 +18,9 @@ public class MainApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         application = this;
+        // For Dagger DI framework
         objectGraph = ObjectGraph.create(new MainModule());
-
     }
 
     public ObjectGraph getObjectGraph() {

@@ -1,4 +1,15 @@
 package com.houston_inc.android.activity;
 
-public class AccountsActivity {
+import android.os.Bundle;
+
+public class AccountsActivity extends BaseActivity {
+
+    @Override
+    public void onCreate(Bundle state) {
+        super.onCreate(state);
+    }
+
+
+
+
 }

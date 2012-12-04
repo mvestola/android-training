@@ -7,7 +7,7 @@
   <application
           android:icon="@drawable/icon"
           android:label="@string/app_name"
-          android:name=".app.MainApplication">
+          android:name=".app.MainApplication_">
     <activity android:name=".activity.LoginActivity_">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

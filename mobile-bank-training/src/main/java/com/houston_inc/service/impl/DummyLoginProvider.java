@@ -6,7 +6,7 @@ import com.houston_inc.exception.InvalidCredentialsException;
 import com.houston_inc.exception.InvalidSecurityKeyException;
 import com.houston_inc.service.LoginProvider;
 
-public class DummyLoginProvider implements LoginProvider {
+public class DummyLoginProvider extends AbstractNetworkRequestEmulator implements LoginProvider {
 
     private static final String VALID_USERNAME = "test";
     private static final String VALID_PASSWORD = "test";
@@ -18,6 +18,8 @@ public class DummyLoginProvider implements LoginProvider {
     @Override
     public void login(String username, String password, SecurityKey key)
             throws InvalidCredentialsException, InvalidSecurityKeyException {
+
+        emulateNetworkRequest(3000);
 
         boolean validUsername = username!=null && username.equals(VALID_USERNAME);
         boolean validPassword = password!=null && password.equals(VALID_PASSWORD);
