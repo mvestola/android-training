@@ -6,6 +6,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.googlecode.androidannotations.annotations.*;
 import com.houston_inc.android.R;
 
@@ -41,11 +43,18 @@ public class PaymentActivity extends BaseActivity {
 
     @OptionsItem(R.id.payment_menu_barcode)
     void paymentMenuSelected() {
-        Intent intent = new Intent(this, PaymentActivity_.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        IntentIntegrator integrator = new IntentIntegrator(this);
+        integrator.initiateScan();
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+
+        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+        if (scanResult != null) {
+            Toast.makeText(this, scanResult.toString(), Toast.LENGTH_LONG).show();
+        }
+        // else continue with any other code you need in the method
+    }
 
     @Click(R.id.paymentSaveButton)
     void onSaveButtonClick() {
