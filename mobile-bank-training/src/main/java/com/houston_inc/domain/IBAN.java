@@ -4,6 +4,10 @@ public class IBAN {
 
     String accountNumber;
 
+    public IBAN(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -11,4 +15,5 @@ public class IBAN {
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
+
 }

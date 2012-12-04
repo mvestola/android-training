@@ -74,11 +74,13 @@ public class LoginActivity extends BaseActivity {
     @UiThread
     void onLoginOk() {
         Toast.makeText(this, "Login OK", Toast.LENGTH_LONG).show();
-        //startAccountsActivity();
+        startAccountsActivity();
     }
 
     private void startAccountsActivity() {
-        Intent intent = new Intent(this, AccountsActivity.class);
+        // Remember to use underscore version
+        Intent intent = new Intent(this, AccountsActivity_.class);
+        startActivity(intent);
     }
 
     private void onLoginStart() {

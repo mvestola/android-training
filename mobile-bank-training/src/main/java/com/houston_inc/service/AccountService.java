@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface AccountService {
 
-    public List<Account> getAccounts(SecurityKey key);
+    public List<Account> getAccounts();
 
 
 }
