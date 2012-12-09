@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="horizontal">
+
+    <fragment
+            android:id="@+id/listFragment"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            class="com.houston_inc.android.fragment.AccountsListFragment_"></fragment>
+
+    <fragment
+            android:id="@+id/accountDetailsFragment"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="fill_parent"
+            class="com.houston_inc.android.fragment.AccountDetailsFragment_"></fragment>
+
+</LinearLayout>

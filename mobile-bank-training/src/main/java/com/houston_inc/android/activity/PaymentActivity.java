@@ -50,11 +50,8 @@ public class PaymentActivity extends BaseActivity {
     @OptionsItem(R.id.payment_menu_barcode)
     void scanBarcodeSelected() {
         resetFields();
-        Collection<String> barcodeType = new ArrayList<String>();
-        barcodeType.add("CODE_128");
-
         IntentIntegrator integrator = new IntentIntegrator(this);
-        integrator.initiateScan(barcodeType);
+        integrator.initiateScan();
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {

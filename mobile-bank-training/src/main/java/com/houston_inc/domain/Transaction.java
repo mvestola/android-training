@@ -11,6 +11,18 @@ public class Transaction {
     private String reference;
     private String message;
 
+    public Transaction() {
+    }
+
+    public Transaction(double amount, Date dueDate, String message, String payer, IBAN receiver, String reference) {
+        this.amount = amount;
+        this.dueDate = dueDate;
+        this.message = message;
+        this.payer = payer;
+        this.receiver = receiver;
+        this.reference = reference;
+    }
+
     public double getAmount() {
         return amount;
     }

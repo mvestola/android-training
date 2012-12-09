@@ -23,6 +23,14 @@ public class MainApplication extends Application {
         objectGraph = ObjectGraph.create(new MainModule());
     }
 
+    public static void setApplication(MainApplication application) {
+        MainApplication.application = application;
+    }
+
+    public void setObjectGraph(ObjectGraph graph) {
+        objectGraph = graph;
+    }
+
     public ObjectGraph getObjectGraph() {
         return objectGraph;
     }

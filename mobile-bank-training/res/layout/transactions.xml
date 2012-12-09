@@ -2,13 +2,13 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent">
+              android:layout_height="fill_parent"
+              android:orientation="vertical">
 
     <fragment
-            android:id="@+id/listFragment"
+            android:id="@+id/accountDetailsFragment"
             android:layout_width="fill_parent"
-            android:layout_weight="1"
             android:layout_height="fill_parent"
-            class="com.houston_inc.android.fragment.AccountsListFragment_"></fragment>
+            class="com.houston_inc.android.fragment.AccountDetailsFragment_"></fragment>
 
 </LinearLayout>

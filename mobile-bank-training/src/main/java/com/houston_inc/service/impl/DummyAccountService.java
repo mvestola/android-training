@@ -21,6 +21,16 @@ public class DummyAccountService extends AbstractNetworkRequestEmulator implemen
 
     private User loggedInUser;
 
+    private static List<Account> accountList;
+
+    static {
+        accountList = new ArrayList<Account>();
+        accountList.add(new Account(new IBAN("FI1234567890"), 1234.56, "Company account"));
+        accountList.add(new Account(new IBAN("FI1234567891"), 1000000.0,  "Savings account"));
+        accountList.add(new Account(new IBAN("FI1234567892"), 12.54, "My account"));
+        accountList.add(new Account(new IBAN("FI1234567893"), -100.4, "Wife's account"));
+    }
+
 
     public void login(String username, String password, SecurityKey key)
             throws InvalidCredentialsException, InvalidSecurityKeyException {
@@ -45,15 +55,12 @@ public class DummyAccountService extends AbstractNetworkRequestEmulator implemen
 
     @Override
     public List<Account> getAccounts() {
+        return accountList;
+    }
 
-        List<Account> list = new ArrayList<Account>();
-        list.add(new Account(new IBAN("FI1234567890"), 1234.56, "Company account"));
-        list.add(new Account(new IBAN("FI1234567891"), 1000000.0,  "Savings account"));
-        list.add(new Account(new IBAN("FI1234567892"), 12.54, "My account"));
-        list.add(new Account(new IBAN("FI1234567893"), -100.4, "Wife's account"));
-
-        return list;
-
+    @Override
+    public Account getAccount(Integer index) {
+        return accountList.get(index);
     }
 
 }
