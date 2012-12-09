@@ -10,6 +10,12 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.googlecode.androidannotations.annotations.*;
 import com.houston_inc.android.R;
+import com.houston_inc.domain.Payment;
+import com.houston_inc.util.PaymentUtil;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @EActivity(R.layout.payment)
 @OptionsMenu({R.menu.payment_menu, R.menu.common_menu})
@@ -42,18 +48,40 @@ public class PaymentActivity extends BaseActivity {
     }
 
     @OptionsItem(R.id.payment_menu_barcode)
-    void paymentMenuSelected() {
+    void scanBarcodeSelected() {
+        resetFields();
+        Collection<String> barcodeType = new ArrayList<String>();
+        barcodeType.add("CODE_128");
+
         IntentIntegrator integrator = new IntentIntegrator(this);
-        integrator.initiateScan();
+        integrator.initiateScan(barcodeType);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 
         IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if (scanResult != null) {
-            Toast.makeText(this, scanResult.toString(), Toast.LENGTH_LONG).show();
+
+            Payment payment = PaymentUtil.gePaymentFromBarcode(scanResult.getContents());
+
+            if (payment!=null) {
+                receiverIban.setText(payment.getReceiver().toString());
+                paymentAmount.setText("" + payment.getAmount());
+                if (payment.getDueDate()!=null) {
+                    paymentDueDate.setText(new SimpleDateFormat("dd.MM.yyyy").format(payment.getDueDate()));
+                }
+                paymentReference.setText(payment.getReference());
+            }
+
         }
-        // else continue with any other code you need in the method
+
+    }
+
+    private void resetFields() {
+        receiverIban.setText("");
+        paymentAmount.setText("");
+        paymentDueDate.setText("");
+        paymentReference.setText("");
     }
 
     @Click(R.id.paymentSaveButton)

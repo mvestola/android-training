@@ -16,4 +16,8 @@ public class IBAN {
         this.accountNumber = accountNumber;
     }
 
+    @Override
+    public String toString() {
+        return accountNumber;
+    }
 }

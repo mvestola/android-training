@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+        >
 <RelativeLayout
         android:id="@+id/widget42"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        android:layout_height="fill_parent">
     <LinearLayout
             android:id="@+id/widget43"
             android:layout_width="fill_parent"
@@ -12,44 +15,68 @@
             android:orientation="vertical"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true">
+        <TextView
+                android:id="@+id/paymentReceiverNameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saajan nimi" />
         <EditText
                 android:id="@+id/paymentReceiverName"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Saajan nimi"
                 android:textSize="18sp" />
+        <TextView
+                android:id="@+id/paymentReceiverIbanTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saajan tilinumero" />
         <EditText
                 android:id="@+id/paymentReceiverIban"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Saajan tilinumero"
                 android:textSize="18sp" />
+        <TextView
+                android:id="@+id/paymentAmountTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maksun määrä" />
         <EditText
                 android:id="@+id/paymentAmount"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
-                android:hint="M&#228;&#228;r&#228;"
                 android:textSize="18sp" />
-        <EditText
-                android:id="@+id/paymentDueDate"
+        <TextView
+                android:id="@+id/paymentDueDateTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Eräpäivä" />
+        <EditText
+                android:id="@+id/paymentDueDate"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
                 android:inputType="date"
-                android:hint="Er&#228;p&#228;iv&#228;"
                 android:textSize="18sp" />
+        <TextView
+                android:id="@+id/paymentReferenceTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Viitenumero" />
         <EditText
                 android:id="@+id/paymentReference"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Viitenumero"
                 android:textSize="18sp" />
+        <TextView
+                android:id="@+id/paymentMessageTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Viesti" />
         <EditText
                 android:id="@+id/paymentMessage"
                 android:layout_width="fill_parent"
                 android:layout_height="100dp"
-                android:hint="Viesti"
                 android:textSize="18sp" />
         <Button
                 android:id="@+id/paymentSaveButton"
@@ -58,3 +85,4 @@
                 android:hint="Tallenna maksu" />
     </LinearLayout>
 </RelativeLayout>
+</ScrollView>
