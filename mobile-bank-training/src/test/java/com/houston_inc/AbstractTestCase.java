@@ -18,9 +18,8 @@ import static com.xtremelabs.robolectric.RobolectricTestRunner.setStaticValue;
 public abstract class AbstractTestCase  {
 
     @Before
-    public void setUp() throws Exception {
+    public void beforeTests() throws Exception {
         MockitoAnnotations.initMocks(this);
-        //MainApplication.setContext(Robolectric.application);
     }
 
 }

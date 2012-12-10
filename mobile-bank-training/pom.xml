@@ -32,6 +32,13 @@
             </snapshots>
         </repository>
 
+        <!-- For custom robolectric version which works with ActionBarScherlock -->
+        <repository>
+            <id>testbed2repo</id>
+            <name>testbed2repo</name>
+            <url>https://raw.github.com/mvestola/helsinki-testbed2-android-repo/master/repo</url>
+        </repository>
+
     </repositories>
 
     <dependencies>
@@ -92,8 +99,8 @@
 
         <dependency>
             <groupId>com.pivotallabs</groupId>
-            <artifactId>robolectric</artifactId>
-            <version>1.2-SNAPSHOT</version>
+            <artifactId>robolectric-custom</artifactId>
+            <version>1.1</version>
             <scope>test</scope>
         </dependency>
 
